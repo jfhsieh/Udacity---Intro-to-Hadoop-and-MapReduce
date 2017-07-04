@@ -1,1 +1,1 @@
-# Udacity---Intro-to-Hadoop-and-MapReduce
+This repository includes few projects that apply Hadoop and MapReduce to analyze data.
