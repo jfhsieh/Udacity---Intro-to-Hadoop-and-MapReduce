@@ -4,7 +4,7 @@
 # It will be in the format key\tval
 # where key is the request line from the client, val is the status code.
 #
-# The number of hits to the page "/assets/js.the-associates.js" 
+# The number of hits to the page "/assets/js/the-associates.js" 
 # will be calculated.
 
 import sys
@@ -18,8 +18,8 @@ for line in sys.stdin:
 
     request, status = data_mapped
     
-    if (request.find("/assets/js.the-associates.js") >= 0):
+    if (request.find("/assets/js/the-associates.js") >= 0):
     	count += 1
 
-print "Total hits value", "\t", count
+print "Total hits", "\t", count
 
