@@ -9,23 +9,20 @@
 
 import sys
 
-oldKey = None
-count = 0
+path_dic = {}
 
 for line in sys.stdin:
     data_mapped = line.strip().split("\t")
     if len(data_mapped) != 2:
         continue
 
-    request, status = data_mapped
+    path, status = data_mapped
     
-    if oldKey and oldKey != thisKey:
-        print oldKey, "\t", count
-        oldKey = thisKey;
-        count = 0
+    if path not in path_dic:
+        path_dic[path] = 1
+    else:
+        path_dic[path] += 1
 
-    oldKey = thisKey
-    count += 1
+popular_path = max(path_dic, key=path_dic.get)
+print popular_path, "\t", path_dic[popular_path] 
 
-if oldKey != None:
-    print oldKey, "\t", count

@@ -19,7 +19,8 @@ for line in sys.stdin:
 
 	data = list(re.match(regex, line).groups())
 
-		ip, identity, username, time, request, status, size = data
-		request = request.replace("GET ", "")
-		request = request.replace("http://www.the-associates.co.uk", "")
-		print "{0}\t{1}".format(request, status)
+	ip, identity, username, time, request, status, size = data
+	request = request.replace("http://www.the-associates.co.uk", "")
+	regex = '(.*?) (.*?) (.*)'
+	request_detail = list(re.match(regex, request).groups())
+	print "{0}\t{1}".format(request_detail[1], status)

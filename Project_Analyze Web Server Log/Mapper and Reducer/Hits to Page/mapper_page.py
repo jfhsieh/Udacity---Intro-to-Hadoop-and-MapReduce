@@ -16,8 +16,6 @@ import re
 for line in sys.stdin:
 	line = line.strip()
 	regex = '([(\d\.)]+) (.*?) (.*?) \[(.*?)\] \"(.*?)\" (.*?) (.*)'
-
 	data = list(re.match(regex, line).groups())
-
-		ip, identity, username, time, request, status, size = data
-		print "{0}\t{1}".format(request, status)
+	ip, identity, username, time, request, status, size = data
+	print "{0}\t{1}".format(request, status)
