@@ -16,7 +16,7 @@ for line in sys.stdin:
     thisID, thisBody, thisCount = data_mapped
 
     if thisBody == "fantastic":
-        count += thisCount
+        count += float(thisCount)
     if thisBody == "fantastically":
         list_ID.append(thisID)
 

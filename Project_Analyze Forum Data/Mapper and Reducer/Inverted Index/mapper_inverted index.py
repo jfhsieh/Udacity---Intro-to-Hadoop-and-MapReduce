@@ -18,6 +18,7 @@ reader = csv.reader(sys.stdin, delimiter='\t')
 
 for line in reader:
 	body = line[4].lower()
+	
     regex = r'\b(fantastic)\b'
     count = len(re.findall(regex, body))
     if count > 0: 
