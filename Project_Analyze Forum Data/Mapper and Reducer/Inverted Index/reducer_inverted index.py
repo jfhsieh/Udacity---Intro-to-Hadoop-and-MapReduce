@@ -10,13 +10,13 @@ list_ID = []
 
 for line in sys.stdin:
     data_mapped = line.strip().split("\t")
-    if len(data_mapped) != 2:
+    if len(data_mapped) != 3:
         continue
-    
-    thisID, thisBody = data_mapped
+
+    thisID, thisBody, thisCount = data_mapped
 
     if thisBody == "fantastic":
-        count += 1
+        count += thisCount
     if thisBody == "fantastically":
         list_ID.append(thisID)
 

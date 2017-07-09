@@ -17,10 +17,13 @@ import re
 reader = csv.reader(sys.stdin, delimiter='\t')
 
 for line in reader:
+	body = line[4].lower()
     regex = r'\b(fantastic)\b'
-    if re.search(regex, line[4], re.IGNORECASE):
-    	print "{0}\t{1}".format(line[0], "fantastic")
+    count = len(re.findall(regex, body))
+    if count > 0: 
+    	print "{0}\t{1}\t{2}".format(line[0], "fantastic", count)
 
     regex = r'\b(fantastically)\b'
-    if re.search(regex, line[4], re.IGNORECASE):
-    	print "{0}\t{1}".format(line[0], "fantastically")
+    count = len(re.findall(regex, body))
+    if count > 0: 
+    	print "{0}\t{1}\t{2}".format(line[0], "fantastically", count)
