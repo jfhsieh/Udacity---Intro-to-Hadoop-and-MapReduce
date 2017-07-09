@@ -2,11 +2,11 @@
 
 import sys
 
-salesTotal = 0
-oldKey = None
-
 # Loop around the data
 # It will be in the format key\tval
+
+week_dic = {}
+week_cnt_dic = {}
 
 for line in sys.stdin:
     data_mapped = line.strip().split("\t")
@@ -14,9 +14,8 @@ for line in sys.stdin:
         continue
 
     thisKey, thisSale = data_mapped
+    thisSale = float(thisSale)
 
-    week_dic = {}
-    week_cnt_dic = {}
     if thisKey not in week_dic:
         week_dic[thisKey] = thisSale
         week_cnt_dic[thisKey] = 1
@@ -24,5 +23,5 @@ for line in sys.stdin:
         week_dic[thisKey] += thisSale
         week_cnt_dic[thisKey] += 1
 
-for key, value in week_dic:
+for key, value in week_dic.iteritems():
     print key, "\t", value / week_cnt_dic[key]
