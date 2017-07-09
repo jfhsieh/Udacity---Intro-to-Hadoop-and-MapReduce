@@ -12,10 +12,15 @@
 
 import sys
 import csv
+import re
 
-reader = csv.reader(sys.stdin, delimiter='\t', quoting= csv.QUOTE_ALL, quotechar = '"')
+reader = csv.reader(sys.stdin, delimiter='\t')
 
 for line in reader:
-	body = line[4].lower()
-    if body.find("fantastic") >= 0:
-        print "{0}\t{1}".format(line[0], line[4])
+    regex = r'\b(fantastic)\b'
+    if re.search(regex, line[4], re.IGNORECASE):
+    	print "{0}\t{1}".format(line[0], "fantastic")
+
+    regex = r'\b(fantastically)\b'
+    if re.search(regex, line[4], re.IGNORECASE):
+    	print "{0}\t{1}".format(line[0], "fantastically")
