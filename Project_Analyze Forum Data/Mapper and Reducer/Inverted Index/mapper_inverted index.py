@@ -13,7 +13,7 @@
 import sys
 import csv
 
-reader = csv.reader(sys.stdin, delimiter='\t')
+reader = csv.reader(sys.stdin, delimiter='\t', quoting= csv.QUOTE_ALL, quotechar = '"')
 
 for line in reader:
 	body = line[4].lower()

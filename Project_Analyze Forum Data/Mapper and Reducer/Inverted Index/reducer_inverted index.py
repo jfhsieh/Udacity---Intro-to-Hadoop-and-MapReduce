@@ -21,7 +21,7 @@ for line in sys.stdin:
         count += 1
     regex = r'\b(fantastically)\b'
     if re.search(regex, thisBody, re.IGNORECASE):
-        list_ID.append[thisID]
+        list_ID.append(thisID)
 
 print "Count of word 'fantastic'", "\t", count
 
